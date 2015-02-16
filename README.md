@@ -13,8 +13,8 @@ Ajax http/json(why not?)<br>
 WCF<br>
 
 <hr>
-<b>Types of tests:</b>
-Simple cursor test
-Network packets per second and depending on size
-Connections per second
-Broadcast(all except)
+<b>Types of tests:</b><br>
+Simple cursor test<br>
+Network packets per second and depending on size<br>
+Connections per second<br>
+Broadcast(all except)<br>
