@@ -18,3 +18,8 @@ Simple cursor test<br>
 Network packets per second and depending on size<br>
 Connections per second<br>
 Broadcast(all except)<br>
+
+<hr>
+
+All tests will be on:
+Localhost/Lan/Internet
