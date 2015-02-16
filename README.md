@@ -6,7 +6,7 @@ I'm fond of gamedev, so I decided to test different ways of building netword app
 
 <b>The plan is:</b><br>
 Pure TCP/UDP sockets<br>
-Kryo.net
+Kryo.net<br>
 <strike>Socket.io<br></strike>
 Websockets pure<br>
 Ajax http/json(why not?)<br>
