@@ -102,9 +102,35 @@
     </script>
 </head>
 <body>
-<div class="block" id="users"></div>
-<div id="field">
+<div id="menu">
+    <div>
+        <label about="transport">
+            Transport:
+        </label>
+        <select name="transport">
+            <option>Socket.io</option>
+            <option>WebSocket</option>
+            <option>Http</option>
+        </select>
+        <label>
+            Test:
+        </label>
+        <select name="test">
+            <option>Follow Cursor</option>
+            <option>Ping rendering</option>
+        </select>
+    </div>
 </div>
-<button id="startCircling" class="start">Start circling</button>
+<div id="test-fields">
+    <div id="follow-cursor">
+        <div class="block" id="users"></div>
+        <div id="field">
+        </div>
+        <button id="startCircling" class="start">Start circling</button>
+    </div>
+</div>
+<div id="description">
+
+</div>
 </body>
 </html>
