@@ -5,7 +5,7 @@
     <script src="https://cdn.socket.io/socket.io-1.2.1.js"></script>
     <style>
         .block {
-            position: absolute;
+            position: relative;
             top: 0px;
             left: 0px;
             width: 25px;
@@ -21,7 +21,7 @@
             width: 800px;
             height: 600px;
             border: 1px solid #000000;
-            margin: 25px;
+            overflow: hidden;
         }
 
     </style>
@@ -36,7 +36,7 @@
         };
 
         var create = function (selector, x, y) {
-            $(document.body).append("<div class='block' id = '" + selector.substr(1) + "'></div>");
+            $("#field").append("<div class='block' id = '" + selector.substr(1) + "'></div>");
             setPos(selector, x, y);
         };
 
@@ -63,12 +63,13 @@
 
             $("#field, #users").mousemove(function (e) {
 
-                mouse = {x: e.pageX, y: e.pageY};
+                var pos = $("#field").position();
+                mouse = {x: e.pageX - pos.left, y: e.pageY - pos.top};
                 if (interval != null)
                     return;
 
                 socket.emit("move", mouse);
-                setPos("#users", e.pageX, e.pageY);
+                setPos("#users", mouse.x, mouse.y);
             });
 
             $("#startCircling").click(function () {
@@ -123,8 +124,9 @@
 </div>
 <div id="test-fields">
     <div id="follow-cursor">
-        <div class="block" id="users"></div>
+
         <div id="field">
+            <div class="block" id="users"></div>
         </div>
         <button id="startCircling" class="start">Start circling</button>
     </div>
