@@ -1,19 +1,53 @@
-.block {
-    position: relative;
-    top: 0px;
-    left: 0px;
-    width: 25px;
-    height: 25px;
-    background-color: red;
+body {
+    background-color: #656565;
 }
 
-#users {
-    background-color: green;
+.hidden {
+    display: none;
 }
 
-#field {
-    width: 800px;
-    height: 600px;
-    border: 1px solid #000000;
-    overflow: hidden;
+.menu, .test {
+    display: inline-block;
 }
+
+.menu {
+    background-color: #707070;
+    width: 200px;
+}
+
+.menu div {
+    padding: 5px;
+}
+
+.menu-item {
+    margin: 5px;
+    padding: 5px;
+    background-color: #808080;
+    cursor: pointer;
+}
+
+.menu-item:hover {
+    background-color: #858585;
+}
+
+.header {
+    text-align: center;
+    font-size: 20px;
+    text-decoration: underline;
+}
+
+.menu-category {
+    text-decoration: underline;
+}
+
+.field {
+    width: 900px;
+    height: 700px;
+    padding: 10px;
+    border: 1px solid white;
+}
+
+.selected {
+    background-color: #b2b2b2;
+}
+
