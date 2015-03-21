@@ -23,6 +23,11 @@ var socketIoTransport = {
     listen: function(event, listener) {
 
         socketIoTransport.io.on(event, listener);
+    },
+
+    disconnect: function() {
+
+        io.disconnect();
     }
 };
 

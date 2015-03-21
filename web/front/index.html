@@ -13,6 +13,7 @@
     <script type="text/javascript" src="socket.io.transport.js"></script>
 
     <script type="text/javascript" src="follow.test.js"></script>
+    <script type="text/javascript" src="ping.rendering.test.js"></script>
     <title>Massive Network Test</title>
 </head>
 <body>
@@ -21,7 +22,8 @@
             <div class="header">List of tests</div>
 
             <div class="menu-category">Graphic Tests</div>
-            <div class="menu-item test-item" data-test="follow-cursor">Follow cursor</div>
+            <div class="menu-item test-item" data-test="follow-cursor">Follow Cursor</div>
+            <div class="menu-item test-item" data-test="ping-rendering">Ping Rendering</div>
 
             <div class="menu-category">Transport</div>
             <div class="menu-item transport-item selected" data-transport="socket.io">Socket.io</div>
@@ -35,6 +37,14 @@
                 </div>
                 <div class="field">
                     <canvas width="800px" height="600px"></canvas>
+                </div>
+            </div>
+            <div class="ping-rendering hidden">
+                <div class="ping-content">
+                    <div class="color-block request-rendering"></div><div class="color-block response-rendering"></div>
+                    <div class="ping-block">
+                        Ping: <span>0ms</span>
+                    </div>
                 </div>
             </div>
         </div>

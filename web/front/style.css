@@ -51,3 +51,22 @@ body {
     background-color: #b2b2b2;
 }
 
+.color-block {
+    width: 300px;
+    height: 300px;
+    display: inline-block;
+    background-color: #000000;
+}
+
+.ping-block {
+    font-size: 40px;
+    color: #ececec;
+    margin-top: 20px;
+    border-top: 20px solid #ececec;
+    width: 600px;
+    text-align: center;
+}
+
+.request-rendering {
+    cursor: pointer;
+}

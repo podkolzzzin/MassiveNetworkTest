@@ -3,7 +3,6 @@ var io = require('socket.io')(app);
 
 app.listen(8888);
 
-
 io.on("connection", function(s) {
 
     console.log("connect");
@@ -16,8 +15,12 @@ io.on("connection", function(s) {
     s.on("disconnect", function() {
 
         this.broadcast.emit("disconnection", this.id);
-    })
+    });
 
+    s.on("colorChanged", function (data) {
+
+        this.emit("colorChanged", data);
+    });
 });
 
 console.log("server started");
