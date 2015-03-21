@@ -2,7 +2,7 @@ var pingRendering = {
 
     class: 'ping-rendering',
     currentColor: 0,
-    start: undefined,
+    startTime: undefined,
     colors: [ "black", "red", "green", "white", "purple", "yellow"],
 
     reset: function() {
@@ -14,13 +14,13 @@ var pingRendering = {
 
         engine.currentTransport.listen('colorChanged', function(data) {
 
-            $('.ping-block span').text((new Date()).getTime() - pingRendering.start.getTime());
+            $('.ping-block span').text((new Date()).getTime() - pingRendering.startTime.getTime());
             $('.response-rendering').css('background-color', data);
         });
 
         $('.request-rendering').click(function() {
 
-            pingRendering.start = new Date();
+            pingRendering.startTime = new Date();
             pingRendering.currentColor++;
             pingRendering.currentColor %= pingRendering.colors.length;
             var color = pingRendering.colors[pingRendering.currentColor];
