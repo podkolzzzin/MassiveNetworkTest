@@ -3,7 +3,7 @@ body {
 }
 
 .hidden {
-    display: none;
+    display: none !important;
 }
 
 .menu, .test {
@@ -69,4 +69,10 @@ body {
 
 .request-rendering {
     cursor: pointer;
+}
+
+.progress-bar {
+    width: 300px;
+    height: 300px;
+    display: inline-block;
 }

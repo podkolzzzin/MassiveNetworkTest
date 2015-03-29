@@ -21,6 +21,11 @@ io.on("connection", function(s) {
 
         this.emit("colorChanged", data);
     });
+
+    s.on("data", function(data) {
+
+        this.emit("data", {dataLength: data.length});
+    })
 });
 
 console.log("server started");
