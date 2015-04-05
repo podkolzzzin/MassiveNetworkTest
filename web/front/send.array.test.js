@@ -3,12 +3,13 @@ var sendArray = {
     class: 'send-array',
 
     step: 10000,
-    numTests: 100,
-    allTests: 100,
+    numTests: 20,
+    allTests: 20,
     major: undefined,
     minor: undefined,
     info: [0],
     statistics: [[]],
+    array: undefined,
 
     reset: function() {
 
@@ -63,17 +64,21 @@ var sendArray = {
 
             response.dataLength /= sendArray.step;
             var info = sendArray.info[response.dataLength - 1];
+            var time = timer.finish('data' + response.dataLength);
+            sendArray.statistics[response.dataLength - 1].push(time);
+
             sendArray.minor.animate(info / sendArray.numTests, {
-                duration: 50
+                duration: time
             });
 
             sendArray.major.animate(sendArray.info.length / sendArray.allTests + info / (sendArray.allTests *  sendArray.numTests), {
-                duration: 50
+                duration: time
             });
 
-            sendArray.statistics[response.dataLength - 1].push(timer.finish('data' + response.dataLength));
+
 
             if (info == sendArray.numTests) {
+                delete  sendArray.array;
                 if(sendArray.info.length == sendArray.allTests) {
                     sendArray.finished();
                     return;
@@ -125,9 +130,11 @@ var sendArray = {
 
     sendArray: function() {
 
+        if(!sendArray.array)
+            sendArray.array = sendArray.genArray(sendArray.info.length * sendArray.step)
         timer.start('data' + sendArray.info.length);
         sendArray.info[sendArray.info.length - 1]++;
-        engine.currentTransport.emit('data', sendArray.genArray(sendArray.info.length * sendArray.step));
+        engine.currentTransport.emit('data', sendArray.array);
         console.log("Array of ", sendArray.info.length * sendArray.step, "elements had been just sent.")
     }
 };

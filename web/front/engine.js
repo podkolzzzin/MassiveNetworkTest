@@ -63,6 +63,8 @@ var engine = {
         if (engine.currentTransport != null)
             engine.currentTransport.reset();
         engine.currentTransport = engine.transports[$('.transport-item.selected').data('transport')];
-        engine.currentTransport.start(document.location.hostname);
+        var host = document.location.hostname || "http://localhost";
+        console.log(host);
+        engine.currentTransport.start(host);
     }
 };
